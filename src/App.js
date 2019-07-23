@@ -49,7 +49,3 @@ class App extends Component {
               Submit
           </Button>
           </div>
-          
-          
-        </form>
-    </div> 
