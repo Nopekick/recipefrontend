@@ -48,4 +48,9 @@ class App extends Component {
             <Button type='submit'  variant="contained" color="primary" >
               Submit
           </Button>
-          </div>
+              </div>
+              </form>
+              </div>
+    );
+          }}
+          export default App;
