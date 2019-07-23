@@ -6,15 +6,15 @@ import Button from '@material-ui/core/Button';
 class App extends Component() {
   constructor(props){
     this.state = {
-
+      
     }
   }
 
   render(){
     return (
       <div>
-        <form onSubmit={}>
-          <Input defaultValue="ingredient..."
+        <form onSubmit={()=>{console.log("submitted")}}>
+          <Input defaultValue="Add an ingredient"
             className={classes.input}
             inputProps={{
             'aria-label': 'Description',
@@ -24,11 +24,4 @@ class App extends Component() {
               Primary
           </Button>
         </form>
-
-      </div>
-    );
-  }
-  
-}
-
-export default App;
+    </div> 
