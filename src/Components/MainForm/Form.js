@@ -39,15 +39,15 @@ class Form extends Component {
 
   render(){
     let ingredients = this.state.ingredients.map((ing)=>{
-        return <div key={ing}>
+        return <div  key={ing}>
           <h2> {ing} </h2>
         </div>
     })
     return(
-        <div>
+        <div className="card1">
             {ingredients}
              <form onSubmit={this.handleSubmit}>
-          <Input onChange={this.handleChange} placeholder="ingredient..."
+          <Input onChange={this.handleChange} placeholder="Ingredient"
             inputProps={{
             'aria-label': 'Description',
             }} name='cur' value={this.state.cur}

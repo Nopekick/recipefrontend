@@ -9,17 +9,12 @@
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  background-color: green;
 }
 .Heading{
   text-align: center;
-  color:white;
-  font-size: 25px;
-  font-weight: bold;
-  
+  color:white; 
 }
 
-
-
-
-
+.card1{
+  text-align: center;
+}
