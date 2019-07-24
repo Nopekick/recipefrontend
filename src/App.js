@@ -22,7 +22,7 @@ class App extends Component {
   render(){
     return (
       <div>
-        <div className='Heading'> 
+        <div className='Heading'>
           <h1>Recipe App</h1>
           <p>Welcome to the Recipe App. Here, you can check if the food you are going to cook is seasonal or not. To do this, you simply need to add all the ingredients you are going to use and we'll let you know if those ingredients are seasonal.</p>
         </div>
@@ -30,11 +30,11 @@ class App extends Component {
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
         </Switch>
-        
+
       </div>
     );
   }
-  
+
 }
 
 export default App;
