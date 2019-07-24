@@ -11,11 +11,10 @@
   align-content: center;
 }
 .Heading{
-  text-align: left;
-  color: blue;
+  text-align: center;
+  color:white; 
 }
 
-p{
-  color:black;
+.card1{
   text-align: center;
 }
