@@ -15,25 +15,25 @@ class App extends Component {
     }
   }
 
-  setResults = (_rating, results) => {
-    this.setState({rating: true, results, receivedResult: true})
+  setResults = (rating, results) => {
+    this.setState({rating: rating, results: results, receivedResult: true})
   }
 
   render(){
     return (
       <div>
-        <div className='Heading'> 
+        <div className='Heading'>
           <h1>Recipe App</h1>
         </div>
         <Switch>
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
         </Switch>
-        
+
       </div>
     );
   }
-  
+
 }
 
 export default App;
