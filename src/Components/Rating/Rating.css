@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+.rating {
+    font-size: 70px;
+    font-family: Anton;
+    font-weight: 800px;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 100px;
+    text-align: center;
+}
+
+.a {
+    color: #0e63eb;
+}
+
+.b {
+    color: #10c93b;
+}
+
+.c {
+    color: #c7c714;
+   
+}
+
+.d {
+    color: #b05e0c;
+}
+
+.f {
+    color: #b51616;
+}
