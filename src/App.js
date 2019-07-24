@@ -15,8 +15,8 @@ class App extends Component {
     }
   }
 
-  setResults = (_rating, results) => {
-    this.setState({rating: true, results, receivedResult: true})
+  setResults = (rating, results) => {
+    this.setState({rating: rating, results: results, receivedResult: true})
   }
 
   render(){
