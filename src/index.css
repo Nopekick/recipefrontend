@@ -14,7 +14,11 @@ code {
 }
 
 p{
-  color: green;
-  width: 500px;
+  color: black;
+  width: 600px;
   text-align: center;
+  padding-left: 400px;
+  padding-top: 90px;
+  position: relative;
+  font-size: 30px;
 }
