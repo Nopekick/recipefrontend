@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: white;
 }
 
 code {
@@ -18,5 +18,5 @@ div .buttons{
 }
 
 p{
-  color: white
+  color: black
 }
