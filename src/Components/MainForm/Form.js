@@ -54,7 +54,7 @@ class Form extends Component {
           />
           <div className='buttons'>
             <Button type='button' onClick={this.handleAdd} variant="contained" color="primary" >
-                Add Another
+                Add 
             </Button>
             <Button type='submit'  variant="contained" color="primary" >
               Submit
