@@ -32,6 +32,7 @@ class App extends Component {
         <h2> {ing} </h2>
       </div>
     })
+    
     return (
       <div>
         {ingredients}
