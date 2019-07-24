@@ -79,7 +79,7 @@ class App extends Component {
           <Input onChange={this.handleChange} placeholder="ingredient..."
             inputProps={{
             'aria-label': 'Description',
-            }} name='cur' value={this.state.cur}
+            }} name='curgit' value={this.state.cur}
           />
           <div className='buttons'>
             <Button type='button' onClick={this.handleAdd} variant="contained" color="primary" >
