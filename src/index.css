@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: red;
+  background-color: black;
 }
 
 code {
@@ -13,21 +13,10 @@ code {
     monospace;
 }
 
-
-Styling for the text//
-p{
-  width: 600px;
-  text-align: center;
-  padding-left: 400px;
-  padding-top: 90px;
-  position: relative;
-  font-size: 30px;
+div .buttons{
+  padding-top: 2px;
 }
 
-
-
-styling for the buttons//
-div .buttons{
-  padding-top: 50px;
-
+p{
+  color: white
 }
