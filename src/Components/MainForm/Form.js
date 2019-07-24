@@ -39,7 +39,7 @@ class Form extends Component {
 
   render(){
     let ingredients = this.state.ingredients.map((ing)=>{
-        return <div key={ing}>
+        return <div className="card1" key={ing}>
           <h2> {ing} </h2>
         </div>
     })
