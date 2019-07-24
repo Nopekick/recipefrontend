@@ -47,7 +47,7 @@ class Form extends Component {
         <div>
             {ingredients}
              <form onSubmit={this.handleSubmit}>
-          <Input onChange={this.handleChange} placeholder="ingredient..."
+          <Input onChange={this.handleChange} placeholder="Ingredient"
             inputProps={{
             'aria-label': 'Description',
             }} name='cur' value={this.state.cur}
