@@ -53,7 +53,7 @@ class App extends Component {
         <Typography variant="h5" component="h2">
           {food.name}
         </Typography>
-        {food.seasonality==false ? 
+        {food.seasonality===false ? 
           <Typography color="secondary">
           Not in season
           </Typography> 
