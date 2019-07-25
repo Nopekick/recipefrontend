@@ -16,16 +16,18 @@
 		-1px -1px 0  white,
 		1px -1px 0  white,
 		-1px 1px 0 white,
-		1px 1px 0 white;
+        1px 1px 0 white;
+    margin-top: 275px;
 }
 
 .rate{
     text-align: center;
     margin-right: auto;
-    margin-left: auto;
-    position: relative; 
+    margin-left: 625px;
+    position: fixed; 
     top: 40px;
     color: white; 
+    margin-top: 190px;
 }
 
 .a {
