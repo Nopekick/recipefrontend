@@ -4,6 +4,7 @@ import Form from './Components/MainForm/Form'
 import Result from './Components/Result/Result'
 import Scrape from './Components/Scrape/Scrape'
 import {Switch, Route, withRouter} from 'react-router-dom'
+import img1 from './index.jpg'
 
 class App extends Component {
   constructor(props){
@@ -11,7 +12,6 @@ class App extends Component {
     this.state = {
       results: [],
       rating: null,
-      tab: 'FORM',
       receivedResult: false
     }
   }
@@ -23,9 +23,9 @@ class App extends Component {
   render(){
     return (
       <div>
-        <div className='Heading'>
-          <h1>Recipe App</h1>
-        </div>
+        <main>
+          <h1 id="title">Recipe App</h1>
+        </main>
         <Switch>
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />

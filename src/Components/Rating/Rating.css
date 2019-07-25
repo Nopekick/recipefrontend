@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 
 .rating {
-    font-size: 70px;
+    font-size: 90px;
     font-family: Anton;
     font-weight: 800px;
     border: 1px solid transparent;
@@ -10,6 +10,7 @@
     text-align: center;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 10px;
     background-color: transparent;
     text-shadow:
 		-1px -1px 0  white,

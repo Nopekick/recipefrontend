@@ -4,6 +4,10 @@ import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
 import './Form.css'
 import {withRouter} from 'react-router-dom'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Card from '@material-ui/core/Card';
+
 
 class Form extends Component {
   constructor(props){
@@ -39,30 +43,34 @@ class Form extends Component {
 
   render(){
     let ingredients = this.state.ingredients.map((ing)=>{
-        return <div  key={ing}>
-          <h2> {ing} </h2>
-        </div>
+        return <Card className="item"  key={ing}>
+        <CardContent>
+          <Typography variant="h5" component="h2">
+            {ing}
+          </Typography>
+        </CardContent>
+      </Card>
     })
     return(
         <div className="card1">
-            {ingredients}
-             <form onSubmit={this.handleSubmit}>
-          <Input id="in" onChange={this.handleChange} placeholder="Ingredient " placeholderTextColor="white"
-            inputProps={{
-            'aria-label': 'Description',
-            }} name='cur' value={this.state.cur}
-          />
-          <div className='buttons'>
-            <Button type='button' onClick={this.handleAdd} variant="outlined">
-                Add 
+          <form onSubmit={this.handleSubmit}>
+            <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient " placeholderTextColor="white"
+              inputProps={{
+              'aria-label': 'Description',
+              }} name='cur' value={this.state.cur}
+            />
+            
+              <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={this.handleAdd} variant="contained">
+                  Add 
+              </Button>
+              <Button id="button2" style={{'transform': 'scale(1.2)'}} type='submit' color='primary'  variant="contained" >
+                Submit
             </Button>
-            </div>
-            <div className='buttons2'>
-            <Button type='submit'  variant="outlined" >
-              Submit
-          </Button>
-         </div>
+          
         </form>
+        <div id="item-box"> 
+          {ingredients}
+        </div>
         </div>
     )
   }
