@@ -11,9 +11,11 @@
     font-weight: 50px;
 }
 .buttons{
-    padding-left: 150px;
+    padding-right: 95px;
+    position: relative;
+    top: 35px;
 }
 .buttons2{
-    padding-right: -50px;
+    padding-left:90px;
 }
 
