@@ -79,7 +79,6 @@ main > *::before {
   bottom: 0;
   left: -10px;
   height: .5em;
-  background-color: #000;
   z-index: -1;
 }
 

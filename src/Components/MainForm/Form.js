@@ -22,10 +22,10 @@ class Form extends Component {
 
   handleSubmit(e){
     e.preventDefault()
-    apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", this.state).then(({foods, rating})=>{
-      this.props.setResults(rating, foods)
+    apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", this.state).then((data)=>{
+      this.props.setResults(data.rating, data.foods)
+      console.log(data)
       this.props.history.push('/result')
-      console.log(foods)
     }).catch((err)=>{
       console.log(err)
     })
@@ -59,7 +59,7 @@ class Form extends Component {
     return(
         <div className="card1">
           <form onSubmit={this.handleSubmit}>
-            <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient " placeholderTextColor="white"
+            <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient " 
               inputProps={{
               'aria-label': 'Description',
               }} name='cur' value={this.state.cur}

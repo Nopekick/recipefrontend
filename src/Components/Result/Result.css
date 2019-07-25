@@ -1,6 +1,7 @@
 .card {
-    width: 260px;
+    min-width: 260px;
     margin: 5px;
+    display: flex;
   }
 
 .cardbox {
@@ -8,4 +9,6 @@
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
 }

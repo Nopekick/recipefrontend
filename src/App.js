@@ -3,6 +3,7 @@ import './App.css';
 import Form from './Components/MainForm/Form'
 import Result from './Components/Result/Result'
 import Scrape from './Components/Scrape/Scrape'
+import Rating from './Components/Rating/Rating'
 import {Switch, Route, withRouter} from 'react-router-dom'
 import img1 from './index.jpg'
 
