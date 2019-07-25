@@ -6,9 +6,25 @@
     font-weight: 800px;
     border: 1px solid transparent;
     border-radius: 100%;
-    width: 100px;
+    width: 140px;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
     background-color: transparent;
+    text-shadow:
+		-1px -1px 0  white,
+		1px -1px 0  white,
+		-1px 1px 0 white,
+		1px 1px 0 white;
+}
+
+.rate{
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative; 
+    top: 40px;
+    color: white;
 }
 
 .a {
@@ -30,4 +46,5 @@
 
 .f {
     color: #b51616;
+    
 }
