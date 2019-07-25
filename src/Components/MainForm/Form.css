@@ -14,20 +14,19 @@
     position: absolute;
     top: 120px;
     left: 700px;
-    background-color: #f4511e;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  font-size: 16px;
-  margin: 4px 2px;
-  opacity: 0.6;
-  transition: 0.3s;
-  background-size: cover;
+    color: #20bf6b !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: -10px -20px;
+    border: 4px solid #20bf6b !important;
+    border-radius: 6px;
+    display: inline-block;
 }
 .buttons:hover {
-    opacity: 1;
-    background-size: cover;
+    color: #ffffff !important;
+  border-radius: 50px;
+  border-color: #ffffff !important;
+  transition: all 0.3s ease 0s;
 }
 
 .buttons2{
@@ -35,9 +34,17 @@
     position: absolute;
     top: 120px;
     left: 590px;
-    background-color: transparent;
-    color: white;
+    color: #20bf6b !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: -10px -20px;
+    border: 4px solid #20bf6b !important;
+    border-radius: 6px;
+    display: inline-block;
 }
-.button{
-    color: green;
+.buttons2:hover{
+    color: #ffffff !important;
+  border-radius: 50px;
+  border-color: #ffffff !important;
+  transition: all 0.3s ease 0s;
 }
