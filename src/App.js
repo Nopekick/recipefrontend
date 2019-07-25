@@ -23,19 +23,25 @@ class App extends Component {
   render(){
     return (
       <div>
-        <main>
-          <h1 id="title"><em>Recipe App</em></h1>
+        <main>          
         </main>
         <Switch>
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
           <Route exact path="/link" component={()=> <Scrape setResults={this.setResults}/>} />
         </Switch>
+        <div class="plate">
+  <p class="script"><span>THE</span></p>
+  <p class="shadow text1">SEASONALITY</p>
+  <p class="script"><span>APP</span></p>
+</div>
 
       </div>
+      
     );
   }
 
 }
+
 
 export default App;
