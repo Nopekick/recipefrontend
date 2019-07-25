@@ -10,6 +10,7 @@
   font-size: 100px;
   margin: auto;
   padding-top: 60px;
+  font-family: 'Simplifica'
 
   /* color: #FFFFFF;;
   text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -5px 40px #F00; */
@@ -28,7 +29,6 @@ main > *::before {
   bottom: 0;
   left: -10px;
   height: .5em;
-  background-color: #000;
   z-index: -1;
 }
 
