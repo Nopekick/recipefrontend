@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div>
         <main>
-          <h1 id="title">Recipe App</h1>
+          <h1 id="title"><em>Recipe App</em></h1>
         </main>
         <Switch>
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
