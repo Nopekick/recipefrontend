@@ -1,6 +1,8 @@
 .cust {
   width: 600px;
   color: white;
+  position: relative;
+  top: 80px;
 }
 
 .cust ::placeholder {
@@ -20,4 +22,6 @@
   font-size: 22px;
   color: white;
   letter-spacing: 1px;
+  position: relative;
+  top: 90px;
 }
