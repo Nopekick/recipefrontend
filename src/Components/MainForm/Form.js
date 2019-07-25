@@ -47,19 +47,21 @@ class Form extends Component {
         <div className="card1">
             {ingredients}
              <form onSubmit={this.handleSubmit}>
-          <Input id="in" onChange={this.handleChange} placeholder="Ingredient"
+          <Input id="in" onChange={this.handleChange} placeholder="Ingredient " placeholderTextColor="white"
             inputProps={{
             'aria-label': 'Description',
             }} name='cur' value={this.state.cur}
           />
           <div className='buttons'>
-            <Button type='button' onClick={this.handleAdd} variant="contained" color="primary" >
-                Add Another
+            <Button type='button' onClick={this.handleAdd} variant="outlined">
+                Add 
             </Button>
-            <Button type='submit'  variant="contained" color="primary" >
+            </div>
+            <div className='buttons2'>
+            <Button type='submit'  variant="outlined" >
               Submit
           </Button>
-          </div>
+         </div>
         </form>
         </div>
     )

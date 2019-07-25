@@ -10,11 +10,12 @@ let f = `rating f`
 
 const Rating = ({rating}) => (
     <div>
-    {rating===null ? null : (rating > 90 ? <h1 className={a}> A </h1> 
-    : (rating > 80 ? <h1 className={b}> B </h1>
-    : (rating > 70 ? <h1 className={c}> C</h1> 
-    : (rating > 60 ? <h1 className={d}> D</h1>
-    : <h1 class={f}> F</h1>
+        <h3 className="rate">Seasonality Rating:</h3>
+        {rating===null ? null : (rating > 90 ? <h1 className={a}> A </h1> 
+        : (rating > 80 ? <h1 className={b}> B </h1>
+        : (rating > 70 ? <h1 className={c}> C</h1> 
+        : (rating > 60 ? <h1 className={d}> D</h1>
+        : <h1 class={f}> F</h1>
         ))))}
     </div>
     
