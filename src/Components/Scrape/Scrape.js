@@ -35,11 +35,11 @@ class Scrape extends Component {
                 temp.push(data.ingredientParsed.product)
               })
           }).catch((err)=>{ console.log(err )})
-              apiCall('post')
         let obj = {
           ingredients: temp,
           date: (new Date()).getMonth() + 1
         }
+        console.log(obj)
         apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", obj).then(({foods, rating})=>{
           this.props.setResults(rating, foods)
           this.props.history.push('/result')
@@ -63,6 +63,7 @@ class Scrape extends Component {
     for(let i = 0; i < arr.length; i++){
       temp[i] = this.capitalize(arr[i])
     }
+    return temp
   }
 
   handleChange = e => {
