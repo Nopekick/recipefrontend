@@ -11,9 +11,33 @@
     font-weight: 50px;
 }
 .buttons{
-    padding-left: 150px;
+    position: absolute;
+    top: 120px;
+    left: 700px;
+    background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  background-size: cover;
 }
-.buttons2{
-    padding-right: -50px;
+.buttons:hover {
+    opacity: 1;
+    background-size: cover;
 }
 
+.buttons2{
+    padding-right: -50px;
+    position: absolute;
+    top: 120px;
+    left: 590px;
+    background-color: transparent;
+    color: white;
+}
+.button{
+    color: green;
+}

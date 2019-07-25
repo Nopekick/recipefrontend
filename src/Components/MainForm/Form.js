@@ -53,12 +53,12 @@ class Form extends Component {
             }} name='cur' value={this.state.cur}
           />
           <div className='buttons'>
-            <Button type='button' onClick={this.handleAdd} variant="contained" color="primary" >
+            <Button type='button' onClick={this.handleAdd} variant="outlined" color="primary" >
                 Add 
             </Button>
             </div>
             <div className='buttons2'>
-            <Button type='submit'  variant="contained" color="primary" >
+            <Button type='submit'  variant="outlined" >
               Submit
           </Button>
          </div>
