@@ -31,11 +31,11 @@ class App extends Component {
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
           <Route exact path="/link" component={()=> <Scrape setResults={this.setResults}/>} />
         </Switch>
-        <div class="plate">
-  <p class="script"><span>THE</span></p>
-  <p class="shadow text1">SEASONALITY</p>
-  <p class="script"><span>APP</span></p>
-</div>
+        <div className="plate">
+          <p class="script"><span>THE</span></p>
+          <p class="shadow text1">SEASONALITY</p>
+          <p class="script"><span>APP</span></p>
+      </div>
 
       </div>
       
