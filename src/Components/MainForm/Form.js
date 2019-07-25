@@ -37,8 +37,13 @@ class Form extends Component {
 
   handleAdd = () => {
     let ingredients = this.state.ingredients.slice()
-    ingredients.push(this.state.cur)
+    ingredients.push(this.capitalize(this.state.cur))
     this.setState({ingredients, cur: ''})
+  }
+
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
   render(){
@@ -59,16 +64,16 @@ class Form extends Component {
               'aria-label': 'Description',
               }} name='cur' value={this.state.cur}
             />
-            
+
               <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={this.handleAdd} variant="contained">
-                  Add 
+                  Add
               </Button>
               <Button id="button2" style={{'transform': 'scale(1.2)'}} type='submit' color='primary'  variant="contained" >
                 Submit
             </Button>
-          
+
         </form>
-        <div id="item-box"> 
+        <div id="item-box">
           {ingredients}
         </div>
         </div>

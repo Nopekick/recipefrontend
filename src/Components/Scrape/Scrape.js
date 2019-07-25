@@ -19,6 +19,7 @@ class Scrape extends Component {
     e.preventDefault()
     console.log(this.state.cur)
     apiCall('post', 'https://recipe-server-vmware.herokuapp.com/api/link', this.state).then(async ({result})=>{
+        let newn = this.capitalizeArr(result)
         let temp = []
         await fetch("https://sandbox.zestfuldata.com/parseIngredients", {
             method : "POST",
@@ -27,7 +28,7 @@ class Scrape extends Component {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "ingredients": result
+                "ingredients": newn
               })
           }).then(data=> data.json()).then(({results})=>{
               results.forEach((data)=>{
@@ -52,6 +53,17 @@ class Scrape extends Component {
     this.setState({cur: ''})
   }
 
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
+  capitalizeArr = (arr) => {
+    let temp = []
+    for(let i = 0; i < arr.length; i++){
+      temp[i] = this.capitalize(arr[i])
+    }
+  }
 
   handleChange = e => {
     this.setState({[e.target.name]: e.target.value})
