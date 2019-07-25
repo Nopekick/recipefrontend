@@ -4,6 +4,7 @@
   text-align: center;
 }
 
+
 /* Ibrahim Jabbari -- www.ibrahimjabbari.com */
 @import url(https://fonts.googleapis.com/css?family=Arvo:700);
 @import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
@@ -58,16 +59,10 @@ body {
 }
 .text1 {
   font-size: 60px;
-  position: relative;
-  top: -260px;
-  left:-20px;
+  right: 100px;
 }
 .text2 {
   font-size: 169px;
-  position: absolute;
-  top: -200px;
-  left:-20px;
-
 }
 .text3 {
   font-size: 100px;
