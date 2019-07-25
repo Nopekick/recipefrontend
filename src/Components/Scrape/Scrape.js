@@ -62,12 +62,10 @@ class Scrape extends Component {
     return(
         <div id="scrapeBox">
             <form onSubmit={this.handleSubmit}>
-              <Input style={{'color': 'white', 'fontWeight': '800'}} className='cust' onChange={this.handleChange} placeholder="link"
+              <Input style={{'color': 'white', 'fontWeight': '800'}} className='cust' onChange={this.handleChange}
                 inputProps={{'aria-label': 'Description',}} name='cur' value={this.state.cur}/>
-              <Button type='submit' variant="contained" color="primary" >
-               Search
-              </Button>
           </form>
+          <h2><em>Just paste in an Allrecipes link and we'll handle the ingredients</em></h2>
         </div>
     )
   }
