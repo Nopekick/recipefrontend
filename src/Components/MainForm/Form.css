@@ -90,3 +90,9 @@
     justify-content: center;
     align-items: center;
 }
+
+#circle {
+  margin: auto;
+  margin-top: 600px;
+
+}

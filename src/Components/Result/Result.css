@@ -1,5 +1,6 @@
 .card {
     min-width: 260px;
+    width: 260px;
     margin: 5px;
     display: flex;
   }

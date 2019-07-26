@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-dom'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 class Form extends Component {
@@ -16,6 +17,7 @@ class Form extends Component {
         ingredients: [],
         cur: '',
         date: (new Date()).getMonth() + 1,
+        loader: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -23,9 +25,9 @@ class Form extends Component {
 //"https://recipe-server-vmware.herokuapp.com/api/food"
   handleSubmit(e){
     e.preventDefault()
+    this.setState({loader: true})
     apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", this.state).then((data)=>{
       this.props.setResults(data.rating, data.foods)
-      console.log(data)
       this.props.history.push('/result')
     }).catch((err)=>{
       console.log(err)
@@ -58,26 +60,25 @@ class Form extends Component {
       </Card>
     })
     return(
-        <div className="card1">
-          <form onSubmit={this.handleSubmit}>
-            <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient "
-              inputProps={{
-              'aria-label': 'Description',
-              }} name='cur' value={this.state.cur}
-            />
+      <div className="card1">
+            <form onSubmit={this.handleSubmit}>
+              <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient "
+                inputProps={{
+                'aria-label': 'Description',
+                }} name='cur' value={this.state.cur}
+              />
 
-              <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={this.handleAdd} variant="contained">
-                  Add
+                <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={this.handleAdd} variant="contained">
+                    Add
+                </Button>
+                <Button id="button2" style={{'transform': 'scale(1.2)'}} type='submit' color='primary'  variant="contained" >
+                  Submit
               </Button>
-              <Button id="button2" style={{'transform': 'scale(1.2)'}} type='submit' color='primary'  variant="contained" >
-                Submit
-            </Button>
-
-        </form>
-        <div id="item-box">
-          {ingredients}
-        </div>
-        </div>
+          </form>
+          <div id="item-box">
+            {ingredients}
+          </div>
+      </div>
     )
   }
 }

@@ -10,7 +10,7 @@ let f = `rating f`
 
 const Rating = ({rating}) => {
   console.log(rating)
-    return <div>
+    return <div >
         <h3 className="rate">Seasonality Rating:</h3>
         {rating===null ? <h1 className='rating'>N/A</h1> : (rating > 90 ? <h1 className={a}> A </h1>
         : (rating > 80 ? <h1 className={b}> B </h1>
