@@ -24,7 +24,7 @@
     text-align: center;
     margin-right: auto;
     margin-left: 520px;
-    position: fixed;
+    position: absolute;
     top: 40px;
     color: white;
     font-size: 28px;
