@@ -4,7 +4,9 @@ import Form from './Components/MainForm/Form'
 import Result from './Components/Result/Result'
 import Scrape from './Components/Scrape/Scrape'
 import Rating from './Components/Rating/Rating'
-import {Switch, Route, withRouter} from 'react-router-dom'
+import {Switch, Route, withRouter, Link} from 'react-router-dom'
+import NavigateBefore from '@material-ui/icons/NavigateBefore'
+import NavigateNext from '@material-ui/icons/NavigateNext'
 import img1 from './index.jpg'
 
 class App extends Component {
@@ -29,7 +31,8 @@ class App extends Component {
           <p className="shadow text1">SEASONALITY</p>
           <p className="script"><span>APP</span></p>
         </div>
-
+        {this.props.location.pathname==="/" ?  <Link to="/link"> <NavigateNext id="next"  /> </Link>
+          :   <Link to="/"> <NavigateBefore id="before" /> </Link>}
         <Switch>
           <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
           <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
@@ -44,4 +47,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default withRouter(App);

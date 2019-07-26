@@ -1,4 +1,14 @@
+#next {
+  background-color: white;
+  border-radius: 50%;
+  transform: translateX(1100px) translateY(70px) scale(3);
+}
 
+#before {
+  background-color: white;
+  border-radius: 50%;
+  transform: translateX(1100px) translateY(70px) scale(3);
+}
 
 .card1{
   text-align: center;
@@ -89,4 +99,3 @@ main > *::before {
 main > *:not(:last-child) {
   margin-bottom: 15px;
 }
-

@@ -4,7 +4,6 @@ import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
 import './Scrape.css'
 import {withRouter} from 'react-router-dom'
-import { parse } from 'recipe-ingredient-parser';
 
 class Scrape extends Component {
   constructor(props){
