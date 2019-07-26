@@ -24,7 +24,7 @@ body {
 .plate {
   width: 410px;
   margin: 10% auto;
-  position: fixed;
+  position: absolute;
   top: -117px;
   left: 420px;
 }
