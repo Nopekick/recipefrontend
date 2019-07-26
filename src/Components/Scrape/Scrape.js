@@ -18,34 +18,35 @@ class Scrape extends Component {
     e.preventDefault()
     console.log(this.state.cur)
     apiCall('post', 'https://recipe-server-vmware.herokuapp.com/api/link', this.state).then(async ({result})=>{
-        let newn = this.capitalizeArr(result)
         let temp = []
-        await fetch("https://sandbox.zestfuldata.com/parseIngredients", {
+        fetch("https://sandbox.zestfuldata.com/parseIngredients", {
             method : "POST",
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "ingredients": newn
+                "ingredients": result
               })
           }).then(data=> data.json()).then(({results})=>{
               results.forEach((data)=>{
                 temp.push(data.ingredientParsed.product)
               })
+              let arr = this.capitalizeArr(temp)
+              let obj = {
+                ingredients: arr,
+                date: (new Date()).getMonth() + 1
+              }
+              console.log(obj)
+              apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", obj).then(({foods, rating})=>{
+                this.props.setResults(rating, foods)
+                this.props.history.push('/result')
+                console.log(foods)
+              }).catch((err)=>{
+                console.log(err)
+              })
           }).catch((err)=>{ console.log(err )})
-        let obj = {
-          ingredients: temp,
-          date: (new Date()).getMonth() + 1
-        }
-        console.log(obj)
-        apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", obj).then(({foods, rating})=>{
-          this.props.setResults(rating, foods)
-          this.props.history.push('/result')
-          console.log(foods)
-        }).catch((err)=>{
-          console.log(err)
-        })
+
     }).catch((err)=>{
       console.log(err)
     })
