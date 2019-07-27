@@ -2,12 +2,22 @@
   background-color: white;
   border-radius: 50%;
   transform: translateX(1100px) translateY(70px) scale(3);
+  margin-top: 55px;
+}
+#next:hover{
+  background-color: #5652a3;
+  color: white;
 }
 
 #before {
   background-color: white;
   border-radius: 50%;
   transform: translateX(1100px) translateY(70px) scale(3);
+  margin-top: 55px;
+}
+#before:hover{
+  background-color: #5652a3;
+  color:white;
 }
 
 .card1{
