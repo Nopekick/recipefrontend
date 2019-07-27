@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import {apiCall} from '../../services.js'
 import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
@@ -10,48 +10,36 @@ import Card from '@material-ui/core/Card';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-class Form extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-        ingredients: [],
-        cur: '',
-        date: (new Date()).getMonth() + 1,
-        loader: false
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+function Form(props){
+  let [ingredients, setIngredients] = useState([])
+  let [cur, setCur] = useState('')
+  let [date, setDate] = useState((new Date()).getMonth() + 1)
 
 //"https://recipe-server-vmware.herokuapp.com/api/food"
-  handleSubmit(e){
+  const handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({loader: true})
-    apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", this.state).then((data)=>{
-      this.props.setResults(data.rating, data.foods)
-      this.props.history.push('/result')
+    apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", {ingredients, cur, date}).then((data)=>{
+      props.setResults(data.rating, data.foods)
+      props.history.push('/result')
     }).catch((err)=>{
       console.log(err)
     })
   }
 
-  handleChange = e => {
-    this.setState({[e.target.name]: e.target.value})
+  const handleAdd = () => {
+    let temp = ingredients.slice()
+    temp.push(capitalize(cur))
+    setIngredients(temp)
+    setCur('')
   }
 
-  handleAdd = () => {
-    let ingredients = this.state.ingredients.slice()
-    ingredients.push(this.capitalize(this.state.cur))
-    this.setState({ingredients, cur: ''})
-  }
-
-  capitalize = (s) => {
+  const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
-  render(){
-    let ingredients = this.state.ingredients.map((ing)=>{
-        return <Card className="item"  key={ing}>
+  let ingreds = ingredients.map((ing)=>{
+      return <Card className="item"  key={ing}>
         <CardContent>
           <Typography variant="h5" component="h2">
             {ing}
@@ -59,16 +47,17 @@ class Form extends Component {
         </CardContent>
       </Card>
     })
+
     return(
       <div className="card1">
-            <form onSubmit={this.handleSubmit}>
-              <Input autoComplete='off' id="input" onChange={this.handleChange} placeholder="Ingredient "
+            <form onSubmit={handleSubmit}>
+              <Input autoComplete='off' id="input" onChange={e=>{setCur(e.target.value)}} placeholder="Ingredient "
                 inputProps={{
                 'aria-label': 'Description',
-                }} name='cur' value={this.state.cur}
+                }} name='cur' value={cur}
               />
 
-                <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={this.handleAdd} variant="contained">
+                <Button style={{'transform': 'scale(1.2)'}} id="button1" type='button' color='primary' onClick={handleAdd} variant="contained">
                     Add
                 </Button>
                 <Button id="button2" style={{'transform': 'scale(1.2)'}} type='submit' color='primary'  variant="contained" >
@@ -76,11 +65,10 @@ class Form extends Component {
               </Button>
           </form>
           <div id="item-box">
-            {ingredients}
+            {ingreds}
           </div>
       </div>
     )
-  }
 }
 
 export default withRouter(Form)

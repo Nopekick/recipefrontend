@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import './App.css';
 import Form from './Components/MainForm/Form'
 import Result from './Components/Result/Result'
@@ -9,42 +9,35 @@ import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import img1 from './index.jpg'
 
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      results: [],
-      rating: null,
-      receivedResult: false
-    }
+function App(props){
+  let [results, setResults] = useState([])
+  let [rating, setRating] = useState(null)
+  let [receivedResult, setReceivedResult] = useState(false)
+
+  const setItems = (rating, results) => {
+    setRating(rating)
+    setResults(results)
+    setReceivedResult(true)
   }
 
-  setResults = (rating, results) => {
-    this.setState({rating: rating, results: results, receivedResult: true})
-  }
-
-  render(){
     return (
       <div>
         <div className="plate">
-          <p className="script"><span>THE</span></p>
+          <p className="script"><span>MY</span></p>
           <p className="shadow text1">SEASONALITY</p>
           <p className="script"><span>APP</span></p>
         </div>
-        {this.props.location.pathname==="/" ?  <Link to="/link"> <NavigateNext id="next"  /> </Link>
+        {props.location.pathname==="/" ?  <Link to="/link"> <NavigateNext id="next"  /> </Link>
           :   <Link to="/"> <NavigateBefore id="before" /> </Link>}
         <Switch>
-          <Route exact path="/" component={()=> <Form setResults={this.setResults} />} />
-          <Route exact path="/result" component={()=> <Result receivedResult={this.state.receivedResult} rating={this.state.rating} results={this.state.results} />} />
-          <Route exact path="/link" component={()=> <Scrape setResults={this.setResults}/>} />
+          <Route exact path="/" component={()=> <Form setResults={setItems} />} />
+          <Route exact path="/result" component={()=> <Result receivedResult={receivedResult} rating={rating} results={results} />} />
+          <Route exact path="/link" component={()=> <Scrape setResults={setItems}/>} />
         </Switch>
 
       </div>
 
     );
   }
-
-}
-
 
 export default withRouter(App);

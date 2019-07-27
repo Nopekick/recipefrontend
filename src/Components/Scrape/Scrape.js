@@ -1,23 +1,17 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import {apiCall} from '../../services.js'
 import Input from '@material-ui/core/Input'
 import Button from '@material-ui/core/Button'
 import './Scrape.css'
 import {withRouter} from 'react-router-dom'
 
-class Scrape extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      cur: ''
-    }
+function Scrape(props){
+  let [cur, setCur] = useState('')
 
-  }
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.cur)
-    apiCall('post', 'https://recipe-server-vmware.herokuapp.com/api/link', this.state).then(async ({result})=>{
+    apiCall('post', 'https://recipe-server-vmware.herokuapp.com/api/link', {cur}).then(async ({result})=>{
         let temp = []
         fetch("https://sandbox.zestfuldata.com/parseIngredients", {
             method : "POST",
@@ -32,57 +26,49 @@ class Scrape extends Component {
               results.forEach((data)=>{
                 temp.push(data.ingredientParsed.product)
               })
-              let arr = this.capitalizeArr(temp)
+              let arr = capitalizeArr(temp)
               let obj = {
                 ingredients: arr,
                 date: (new Date()).getMonth() + 1
               }
-              console.log(obj)
               apiCall("post", "https://recipe-server-vmware.herokuapp.com/api/food", obj).then(({foods, rating})=>{
-                this.props.setResults(rating, foods)
-                this.props.history.push('/result')
-                console.log(foods)
+                props.setResults(rating, foods)
+                props.history.push('/result')
               }).catch((err)=>{
                 console.log(err)
               })
-          }).catch((err)=>{ console.log(err )})
+          }).catch((err)=>{ setCur('Error with API. You may have hit the quota.')})
 
     }).catch((err)=>{
       console.log(err)
     })
-    this.setState({cur: ''})
+    setCur('')
   }
 
-  capitalize = (s) => {
+  const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
-  capitalizeArr = (arr) => {
+  const capitalizeArr = (arr) => {
     let temp = []
     for(let i = 0; i < arr.length; i++){
-      temp[i] = this.capitalize(arr[i])
+      temp[i] = capitalize(arr[i])
     }
     return temp
   }
 
-  handleChange = e => {
-    this.setState({[e.target.name]: e.target.value})
-  }
-
-  render(){
-
-    return(
+  return(
         <div id="scrapeBox">
-            <form onSubmit={this.handleSubmit}>
-              <Input style={{'color': 'white', 'fontWeight': '800'}} className='cust' onChange={this.handleChange}
-                inputProps={{'aria-label': 'Description',}} name='cur' value={this.state.cur}/>
+            <form onSubmit={handleSubmit}>
+              <Input style={{'color': 'white', 'fontWeight': '800'}} className='cust' onChange={e=>{setCur(e.target.value)}}
+                inputProps={{'aria-label': 'Description',}} name='cur' value={cur}/>
           </form>
           <h2><em>Just paste in an Allrecipes link and we'll handle the ingredients</em></h2>
         </div>
     )
   }
-}
+
 
 // console.log(result)
 // let appId = 'da5f13f1'
